@@ -75,39 +75,53 @@
               >Переглянути каталог</a
             >
             <div class="menu__burger">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-              <div class="menu__mobile">
-                <ul class="menu__mobile-list">
-                  <li>
-                    <a href="../index.html" class="menu__mobile-link ">Головна</a>
-                  </li>
-                  <li>
-                    <a href="./about.html" class="menu__mobile-link"
-                      >Про нас</a
-                    >
-                  </li>
-                  <li>
-                    <a href="./contacts.html" class="menu__mobile-link"
-                      >Контакти</a
-                    >
-                  </li>
-                  <li>
-                    <a href="./catalog.html" class="menu__mobile-link menu__mobile-link--active"
-                      >Каталог</a
-                    >
-                  </li>
-                </ul>
-              </div>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="menu__mobile">
+              <ul class="menu__mobile-list">
+                <li>
+                  <a href="../index.html" class="menu__mobile-link">Головна</a>
+                </li>
+                <li>
+                  <a href="./about.html" class="menu__mobile-link">Про нас</a>
+                </li>
+                <li>
+                  <a href="./contacts.html" class="menu__mobile-link"
+                    >Контакти</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="./catalog.html"
+                    class="menu__mobile-link menu__mobile-link--active"
+                    >Каталог</a
+                  >
+                </li>
+              </ul>
+            </div>
           </nav>
         </div>
       </header>
       <main class="main">
         <section class="catalog">
           <div class="container">
-            <h2 class="catalog__title">Каталог</h2>
+            <div class="catalog__header">
+              <h2 class="catalog__title">Каталог</h2>
+              <div class="catalog__sort">
+                <label for="sort-select">Сортування:</label>
+                <div class="custom-select-wrapper">
+                  <select id="sort-select">
+                    <option value="default">За замовчуванням</option>
+                    <option value="price-asc">Ціна: за зростанням</option>
+                    <option value="price-desc">Ціна: за спаданням</option>
+                    <option value="year-asc">Рік: за зростанням</option>
+                    <option value="year-desc">Рік: за спаданням</option>
+                  </select>
+                </div>
+              </div>
+            </div>
             <div class="catalog__list">
               <article class="car-card">
                 <div class="car-card__image-wrapper">

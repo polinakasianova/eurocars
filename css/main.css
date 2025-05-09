@@ -603,6 +603,62 @@ body {
 .catalog {
   margin-bottom: 80px;
 }
+.catalog__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+.catalog__sort {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.catalog__sort label {
+  font-weight: 500;
+  white-space: nowrap;
+}
+.custom-select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 220px;
+}
+.custom-select-wrapper select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 38px 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  color: #050b20;
+  line-height: 1.4;
+}
+.custom-select-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 25px;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background-image: url("../images/catalog/sort-arrow-img.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
+.custom-select-wrapper select:hover,
+.custom-select-wrapper select:focus {
+  border-color: #136f63;
+}
 .catalog__title {
   font-size: 30px;
   font-weight: 700;
@@ -1187,5 +1243,21 @@ body {
   }
   .contacts__map iframe {
     max-height: 150px;
+  }
+}
+@media (max-width: 768px) {
+  .catalog__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .catalog__sort {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .custom-select-wrapper {
+    width: 100%;
+  }
+  .custom-select-wrapper select {
+    font-size: 12px;
   }
 }

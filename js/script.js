@@ -115,10 +115,55 @@ function initBurgerMenu() {
     body.classList.toggle("menu-open");
   });
 }
+function initCatalogSorting() {
+  const sortSelect = document.getElementById("sort-select");
+  const catalogList = document.querySelector(".catalog__list");
+  if (!sortSelect || !catalogList) return;
+  const initialCards = Array.from(catalogList.children);
+  const getPriceValue = (card) => {
+    const priceText = card.querySelector(".car-card__price")?.textContent || "";
+    return parseInt(priceText.replace(/\D/g, ""), 10);
+  };
+  const getYearValue = (card) => {
+    const yearElement = Array.from(card.querySelectorAll(".car-card__detail")).find((el) =>
+      /^\d{4}$/.test(el.textContent.trim())
+    );
+    return yearElement ? parseInt(yearElement.textContent.trim(), 10) : 0;
+  };
+  sortSelect.addEventListener("change", () => {
+    const sortType = sortSelect.value;
+    let cards;
+    if (sortType === "default") {
+      cards = [...initialCards];
+    } else {
+      cards = Array.from(catalogList.children).sort((a, b) => {
+        const priceA = getPriceValue(a);
+        const priceB = getPriceValue(b);
+        const yearA = getYearValue(a);
+        const yearB = getYearValue(b);
+        switch (sortType) {
+          case "price-asc":
+            return priceA - priceB;
+          case "price-desc":
+            return priceB - priceA;
+          case "year-asc":
+            return yearA - yearB;
+          case "year-desc":
+            return yearB - yearA;
+          default:
+            return 0;
+        }
+      });
+    }
+    catalogList.innerHTML = "";
+    cards.forEach((card) => catalogList.appendChild(card));
+  });
+}
 document.addEventListener("DOMContentLoaded", function () {
   initHeroSlider();
   initReviewsSlider();
   animateCounters();
   initCallbackForm();
   initBurgerMenu();
+  initCatalogSorting();
 });
